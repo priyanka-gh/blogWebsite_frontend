@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
+.home {
+  margin-top: 4rem;
+}
+.upperHome {
+  background-color: #800080;
+  padding: 2rem 15rem;
+  height: 70vh;
+  display: flex;
+  flex-direction: row;
+}
+.textHome {
+  height: 50vh;
+  background-color: white;
+  color: #5a0f4a;
+  margin-top: 2rem;
+  padding: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.imageHome {
+  padding-top: 2rem;
+}
+.bgphoto {
+  height: calc(60vh - 4.6rem);
+  max-width: fit-content;
+}
+.lowerHome {
+  background-image: linear-gradient(
+    to bottom,
+    #800080,
+    #9757a9,
+    #b291cb,
+    #d3c8e8,
+    #ffffff
+  );
+  margin: 0;
+}
+:root {
+  --surface-color: white;
+  --curve: 50;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* body {
+  font-family: "Noto Sans JP", sans-serif;
+  background-color: #fef8f8;
+} */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 4rem 6vw;
+  padding: 0;
+  list-style-type: none;
+}
+
+.card {
+  position: relative;
+  display: block;
+  height: 100%;
+  border-radius: calc(var(--curve) * 1.5px);
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.card__image {
+  width: 90%;
+  height: auto;
+  border-radius: calc(var(--curve) * 1.5px);
+}
+
+.card__overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  width: 95%;
+  border-radius: calc(var(--curve) * 1.5px);
+  background-color: var(--surface-color);
+  transform: translateY(100%);
+  transition: 0.2s ease-in-out;
+}
+
+.card:hover .card__overlay {
+  transform: translateY(0);
+}
+
+.card__header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 2em;
+  padding: 1.5em;
+  border-radius: calc(var(--curve) * 1.5px) 0 0 0;
+  background-color: var(--surface-color);
+  transform: translateY(-100%);
+  transition: 0.2s ease-in-out;
+}
+
+.card__arc {
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  z-index: 1;
+}
+
+.card__arc path {
+  fill: var(--surface-color);
+  d: path("M 40 80 c 22 0 40 -22 40 -40 v 40 Z");
+}
+
+.card:hover .card__header {
+  transform: translateY(0);
+}
+
+.card__title {
+  font-size: 1em;
+  margin: 0 0 0.3em;
+  color: #6a515e;
+}
+
+.card__tagline {
+  display: block;
+  margin: 1em 0;
+  font-family: "MockFlowFont";
+  font-size: 0.8em;
+  color: #d7bdca;
+}
+
+.card__category {
+  font-size: 0.8em;
+  color: #d7bdca;
+}
+
+.card__description {
+  padding: 0 2em 2em;
+  margin: 0;
+  color: #d7bdca;
+  font-family: "MockFlowFont";
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+.stories {
+  color: white;
+  padding-top: 2rem;
+  text-shadow: 0 0 5px rgb(97, 4, 92), 0 0 10px #fff, 0 0 15px #fff,
+    0 0 20px #520255, 0 0 30px #5a0f4a, 0 0 40px #ff2d95, 0 0 50px #995d7b,
+    0 0 75px #d354a9;
+  letter-spacing: 5px;
+}
+a {
+  text-decoration: none;
+}
+h1 {
+  margin: 0;
+  padding: 0;
+}
+.welcomeMsg {
+  background-color: purple;
+  padding-top: 1rem;
+  color: white;
+  font-family: "Dancing Script", cursive;
+  text-shadow: 0 0 5px rgb(97, 4, 92), 0 0 10px #fff, 0 0 15px #fff,
+    0 0 20px #520255, 0 0 30px #5a0f4a, 0 0 40px #ff2d95, 0 0 50px #995d7b,
+    0 0 75px #d354a9;
+}
