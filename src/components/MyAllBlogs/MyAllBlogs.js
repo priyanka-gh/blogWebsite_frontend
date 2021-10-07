@@ -20,11 +20,9 @@ const MyAllBlogs = () => {
     const preload = () => {    
     getMyBlogs(user._id,token).then(data => {
         if (data.error) {
-            // console.log(data.error);
-            console.log("success")
+            console.log(data.error);
         } else {
              setBlogs(data);
-             console.log('fail')
         }
     });
     };
