@@ -41,15 +41,6 @@ export const getThisBlog=(userId,blogId,token)=>{
 }
 
 //done
-// export const getAllEntryHome=(blogId)=>{
-//     return fetch(`${API}/blogs/${blogId}`,{
-//         method:"GET"
-//     }).then(res=>{
-//         return res.json();
-//     }).catch(err=>console.log(err))
-// }
-
-//done
 export const getMyBlogs=(userId,token)=>{
     return fetch(`${API}/blogs/all/${userId}`,{
         method:"GET",
@@ -57,7 +48,6 @@ export const getMyBlogs=(userId,token)=>{
             Authorization : `Bearer ${token}`
         }
     }).then(res=>{
-        console.log(res)
         return res.json()
     }).catch(err=>{console.log(err)})
 }
