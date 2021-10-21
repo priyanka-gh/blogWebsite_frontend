@@ -11,10 +11,21 @@ const Homepage = () => {
     useEffect(() => {
         isAuthenticated()?setLoggedIn(true):setLoggedIn(false)
     },[])
+
+        const [colorChange, setColorchange] = useState(false);
+        const changeNavbarColor = () =>{
+           if(window.scrollY >= 300){
+             setColorchange(true);
+           }
+           else{
+             setColorchange(false);
+           }
+        };
+        window.addEventListener('scroll', changeNavbarColor);
     return (
         <div>
             <div className="top">
-                <div className="nav">
+                <div className={colorChange ? 'navbar colorChange' : 'navbar'}>
                     <a className='ecrire' href="/">écrire</a>
                     <div className="insideNav">
                         {!loggedIn && (
@@ -23,8 +34,14 @@ const Homepage = () => {
                             {!loggedIn && (
                                 <Link to='/signup' className="link">Signup</Link>
                             )}
-                            {loggedIn && (
+                            {isAuthenticated() && isAuthenticated().user.role===0 && (
                                 <Link to='/myAllBlogs' className="link">My Work</Link>
+                            )}
+                            {isAuthenticated() && isAuthenticated().user.role === 1 && (
+                                <Link to = '/AdminPage'
+                                    className="link">
+                                    All Blogs
+                                </Link>
                             )}
                             {loggedIn && (
                                 <Link to='/'  
@@ -38,6 +55,7 @@ const Homepage = () => {
                                 }}>
                                 Signout</Link>
                             )}
+                            
                     </div>
                 </div>
             </div>

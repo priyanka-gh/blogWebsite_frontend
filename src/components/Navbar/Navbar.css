@@ -3,24 +3,36 @@
 .nav {
   display: flex;
   flex-direction: row;
-  padding: 1rem 0rem 0.5rem 1rem !important;
-  background-color: #ffffff;
+  padding: 1rem 0.5rem 1rem 1rem !important;
   position: fixed;
   width: 100vw;
   z-index: 2 !important;
   top: 0%;
 }
+.navbar {
+  display: flex;
+  flex-direction: row;
+  padding: 1rem 0.5rem 1rem 1rem !important;
+  position: fixed;
+  width: 100vw;
+  z-index: 2 !important;
+  top: 0%;
+}
+
+.navbar.colorChange {
+  background-color: rgb(250, 240, 231);
+}
 .ecrire {
   font-family: "Orbitron", sans-serif;
-  color: rgb(119, 4, 20);
+  color: #a5b9c7;
   text-decoration: none;
   font-size: 2rem;
 }
 .link {
-  font-family: "Reenie Beanie", cursive;
-  color: black;
+  font-family: "Reenie Beanie";
+  color: #a5b9c7;
   margin: 0rem 2rem 0rem 2rem;
-  font-size: 2rem;
+  font-size: 2.3rem;
   text-decoration: none;
 }
 a.link {
@@ -33,7 +45,7 @@ a.link:before {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: rgb(201, 110, 178);
+  background-color: rgb(212, 201, 190);
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out;
@@ -43,6 +55,7 @@ a.link:hover:before {
   transform: scaleX(1);
 }
 .insideNav {
+  font-family: "Orbitron", sans-serif;
   position: relative;
   width: 100vw;
   display: flex;

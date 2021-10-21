@@ -1,41 +1,19 @@
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap");
-.home {
-  margin-top: 4rem;
+@import url("https://fonts.googleapis.com/css?  family=Lora:400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap");
+.bgphoto {
+  width: 98.9vw;
+  height: auto;
 }
 .upperHome {
-  background-color: #800080;
-  padding: 2rem 15rem;
-  height: 70vh;
-  display: flex;
-  flex-direction: row;
-}
-.textHome {
-  height: 50vh;
-  background-color: white;
-  color: #5a0f4a;
-  margin-top: 2rem;
-  padding: 1rem;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
-    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-}
-.imageHome {
-  padding-top: 2rem;
-}
-.bgphoto {
-  height: calc(60vh - 4.6rem);
-  max-width: fit-content;
+  height: auto;
+  background-color: rgba(245, 222, 178, 0.2);
+  /* filter: blur(3px); */
 }
 .lowerHome {
-  background-image: linear-gradient(
-    to bottom,
-    #800080,
-    #9757a9,
-    #b291cb,
-    #d3c8e8,
-    #ffffff
-  );
-  margin: 0;
+  padding-bottom: 1rem;
+  background-color: rgb(250, 240, 231);
 }
 :root {
   --surface-color: white;
@@ -46,31 +24,52 @@
   box-sizing: border-box;
 }
 
-/* body {
-  font-family: "Noto Sans JP", sans-serif;
-  background-color: #fef8f8;
-} */
-
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 300px));
+  /* max-width: 1rem; */
   gap: 2rem;
   margin: 4rem 6vw;
+  margin-bottom: 0;
   padding: 0;
   list-style-type: none;
 }
-
+.upperHome2 {
+  height: 100vh;
+  background-color: black;
+}
+.upperHomeStart {
+  position: relative;
+}
+.upperHomeContent {
+  position: absolute;
+  top: 25%;
+  left: 20%;
+  right: 20%;
+  /* padding: 15rem 15rem 23rem 15rem; */
+  padding: 2rem;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  background-color: rgba(219, 204, 174, 0.4);
+  box-shadow: 0 8px 32px 0 hsla(0, 92%, 10%, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.upperHomeTitle {
+  padding-bottom: 1rem;
+  font-size: 4rem;
+  font-family: "Roboto Condensed", sans-serif;
+}
 .card {
   position: relative;
   display: block;
-  height: 100%;
   border-radius: calc(var(--curve) * 1.5px);
   overflow: hidden;
   text-decoration: none;
 }
 
 .card__image {
-  width: 90%;
+  width: 80%;
   height: auto;
   border-radius: calc(var(--curve) * 1.5px);
 }
@@ -78,10 +77,9 @@
 .card__overlay {
   position: absolute;
   bottom: 0;
-  left: 0;
-  right: 0;
   z-index: 1;
-  width: 95%;
+  width: 80%;
+  height: 10rem;
   border-radius: calc(var(--curve) * 1.5px);
   background-color: var(--surface-color);
   transform: translateY(100%);
@@ -89,7 +87,7 @@
 }
 
 .card:hover .card__overlay {
-  transform: translateY(0);
+  transform: translateY(0) translateX(12%);
 }
 
 .card__header {
@@ -98,9 +96,10 @@
   align-items: center;
   gap: 2em;
   padding: 1.5em;
-  border-radius: calc(var(--curve) * 1.5px) 0 0 0;
+  border-radius: calc(var(--curve) * 1.5px) 0 calc(var(--curve) * 0.8px)
+    calc(var(--curve) * 0.8px);
   background-color: var(--surface-color);
-  transform: translateY(-100%);
+  transform: translateY(-100%) translateX(-120%);
   transition: 0.2s ease-in-out;
 }
 
@@ -152,24 +151,136 @@
 .stories {
   color: white;
   padding-top: 2rem;
-  text-shadow: 0 0 5px rgb(97, 4, 92), 0 0 10px #fff, 0 0 15px #fff,
-    0 0 20px #520255, 0 0 30px #5a0f4a, 0 0 40px #ff2d95, 0 0 50px #995d7b,
-    0 0 75px #d354a9;
+  text-shadow: 0 0 5px rgb(18, 4, 97), 0 0 10px #fff, 0 0 15px #fff,
+    0 0 20px #250755, 0 0 30px #6282ac, 0 0 40px #060491, 0 0 50px #827ab3,
+    0 0 75px #6b54d3;
   letter-spacing: 5px;
 }
-a {
+.upperHomeStart > a {
   text-decoration: none;
 }
 h1 {
   margin: 0;
   padding: 0;
 }
-.welcomeMsg {
-  background-color: purple;
-  padding-top: 1rem;
-  color: white;
-  font-family: "Dancing Script", cursive;
+svg text {
+  font-family: Lora;
+  letter-spacing: 6px;
+  stroke: #ffa5d8;
+  font-weight: 700;
+  font-size: 3rem;
+  stroke-width: 1;
+  animation: textAnimate 3s infinite alternate;
   text-shadow: 0 0 5px rgb(97, 4, 92), 0 0 10px #fff, 0 0 15px #fff,
     0 0 20px #520255, 0 0 30px #5a0f4a, 0 0 40px #ff2d95, 0 0 50px #995d7b,
     0 0 75px #d354a9;
+}
+
+@keyframes textAnimate {
+  0% {
+    stroke-dasharray: 0 50%;
+    stroke-dashoffset: 20%;
+    fill: hsl(195, 40%, 98%);
+  }
+
+  100% {
+    stroke-dasharray: 50% 0;
+    stroke-dashoffstet: -20%;
+    fill: hsla(189, 68%, 75%, 0%);
+  }
+}
+
+div.main-div {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 3rem;
+  background-color: #557a95;
+  text-align: center;
+  font-weight: bold;
+  padding: 1rem;
+  letter-spacing: 0px;
+}
+
+div.main-div div {
+  display: inline-block;
+  margin: 50px 10px 0 10px;
+}
+
+.first {
+  color: #b1a296;
+  animation: swag 3s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite 0.4s;
+}
+
+.second {
+  color: #b8a9bb;
+
+  animation: swag 2.4s cubic-bezier(0.6, 0.04, 0.98, 0.335) infinite 0.3s;
+}
+
+.third {
+  color: #52566a;
+
+  animation: swag 2s cubic-bezier(0.6, -0.28, 0.735, 0.045) infinite 0.8s;
+}
+
+.forth {
+  color: #8cc5bd;
+
+  animation: swag 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite 0.09s;
+}
+
+.fifth {
+  color: #2f4858;
+
+  animation: swag 2s cubic-bezier(0.78, 0.72, 0.225, 1.321) infinite 0.2s;
+}
+
+.sixth {
+  color: #ffeacd;
+
+  animation: swag 2s cubic-bezier(0.58, -0.65, 0.235, 1.15) infinite 0.06s;
+}
+
+.seventh {
+  color: #90ab9b;
+
+  animation: swag 2s cubic-bezier(0.48, 0.45, 0.205, 1.21) infinite 0.4s;
+}
+
+@-webkit-keyframes swag {
+  form {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes swag {
+  form {
+    -moz-transform: rotate(0deg);
+  }
+  to {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-o-keyframes swag {
+  form {
+    -o-transform: rotate(0deg);
+  }
+  to {
+    -o-transform: rotate(360deg);
+  }
+}
+@keyframes swag {
+  form {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.pageOne {
+  display: flex;
+  width: 40rem;
 }

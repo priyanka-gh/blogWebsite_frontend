@@ -20,7 +20,7 @@
   align-items: center;
   justify-content: center;
   padding: 1rem;
-  background: hsla(0, 36%, 63%, 0.25);
+  background: rgb(223, 221, 219);
   box-shadow: 0 8px 32px 0 hsla(0, 92%, 10%, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
@@ -61,7 +61,7 @@ input:focus {
   min-width: 20rem;
   border: none;
   outline: none;
-  background-color: purple;
+  background-color: #557991;
   padding: 1rem;
   margin-bottom: 2rem;
   color: whitesmoke;
@@ -70,7 +70,7 @@ input:focus {
   border-radius: 10px;
 }
 .loginBtn:hover {
-  background-color: rgb(151, 32, 151);
+  background-color: #405e72;
 }
 .h1login {
   font-family: "Oldenburg", cursive;

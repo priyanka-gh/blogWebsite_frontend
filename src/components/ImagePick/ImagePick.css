@@ -26,11 +26,13 @@
   border: none;
   color: white;
   padding: 1rem 1rem;
-  background-color: #76507c;
+  background-color: rgb(134, 120, 133);
 }
 .ImageButton:hover {
-  background-color: #3f2b42;
+  background-color: rgb(112, 98, 111);
 }
+
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Quicksand&family=Oldenburg&display=swap");
 
 .updateImg,
 .remImg {
@@ -47,4 +49,9 @@
 .updateImg:hover,
 .remImg:hover {
   background-color: rgb(199, 166, 129);
+}
+
+.ImageButton {
+  font-family: "Quicksand";
+  padding: 0.5rem;
 }

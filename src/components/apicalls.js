@@ -29,7 +29,7 @@ export const showAllBlogs=()=>{
 }
 
 //done
-export const getThisBlog=(userId,blogId,token)=>{
+export const getThisBlog=(blogId,token)=>{
     return fetch(`${API}/blogs/${blogId}`,{
         method:"GET",
         headers : {
@@ -63,9 +63,23 @@ export const deleteBlog=(userId,blogId,token)=>{
     }).catch(err=>console.log(err))
 }
 
+export const getAllBlogsByUser = (userId) => {
 
-
-
-
-
+    return fetch(`${API}/blogs/all/${userId}`, {
+        method : "GET",
+    }).then(res => {
+        return res.json()
+    }).catch(err => console.log(err))
+}
+//delete by admin
+export const deleteBlogbyAdmin=(userId,blogId,token)=>{
+    return fetch(`${API}/blogs/removeByAdmin/${userId}/${blogId}`,{
+        method:"DELETE",
+        headers : {
+            Authorization : `Bearer ${token}`
+        }
+    }).then(res=>{
+        return res.json();
+    }).catch(err=>console.log(err))
+}
 
