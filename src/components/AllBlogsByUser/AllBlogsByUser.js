@@ -10,20 +10,21 @@ const AllBlogsByUser = props => {
     const history = useHistory()
 
     const userId=location.state.detail;
+    
     const [blogs, setBlogs] = useState([]);
 
     const preload = () => {
-
         getAllBlogsByUser(userId).then(data => {
+            console.log('getallbyuser ',data[0])
             if(data.error){
                 console.log(data.error)
             }
             else{
-                console.log('dataaaaaissss ',data)
                 setBlogs(data)
             }
         })
     }
+    
     useEffect(() => {
         preload();
     },[]);
@@ -74,13 +75,12 @@ const AllBlogsByUser = props => {
                     <div data-aos="flip-left">
                     <li>
                     <a onClick={function(){openBlog(card._id, card.author.name)}} class="card">
-                        {console.log('thecardis ',card)}
                     <ImageHelper card = {card}></ImageHelper>
                     <div class="card__overlay">
                         <div class="card__header">
                         <div class="card__header-text">
                             <h3 class="card__title">{truncate(card.title,50)}</h3>            
-                            <span class="card__category">{card.category}</span>
+                            <span class="card__category">{card.category.name}</span>
                         </div>
                         </div>
                         <p class="card__description">{truncate(card.content,50)}</p>

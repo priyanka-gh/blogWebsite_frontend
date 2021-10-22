@@ -81,9 +81,13 @@ var openBlog=(prop, author)=>{
         });
       };
       
-      const updateThisBlog=(blogId)=>{
-
+      const updateThisBlog=(blog)=>{
+        history.push({
+            pathname: '/updateBlog',
+            state : {detail : blog}
+        })
       }
+
     return (
         <div className="myAllBlogs"> 
         <div className="innerClass"> 
@@ -96,13 +100,13 @@ var openBlog=(prop, author)=>{
                                     <div  className="myBlogsBody">
                                     <div className="blogArea" onClick={function(){openBlog(blog._id, blog.author.name)}}>
                                             <h3 className="blogTitle">
-                                                {truncate(blog.title,20)}</h3>
+                                                {truncate(blog.title,40)}</h3>
                                                 <p className="blogContent">
                                                     {truncate(blog.content,100)}
                                                 </p>
                                     </div>
                                     <div className="blogIcon">
-                                        <FaEdit className="editIcon" onClick={function(){updateThisBlog(blog._id)}}/>
+                                        <FaEdit className="editIcon" onClick={function(){updateThisBlog(blog)}}/>
                                         <RiDeleteBin6Line className="delIcon" onClick={function(){deleteThisBlog(blog._id)}}/>
                                     </div>
                              </div>

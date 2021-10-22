@@ -59,8 +59,8 @@ const HomeCardDetails = props => {
                 <ImageHelperCard card = {blogs} ></ImageHelperCard>
               </div>
               <div className = "blogHeader">
-              <h1 className="headingTitle">{blogs.title}</h1>
-              <h3 className="headingCat">{blogs.category}</h3>
+              <h1 className="headingTitle">{blogs?blogs.title:" "}</h1>
+              <h3 className="headingCat">{blogs.category?blogs.category.name:" "}</h3>
               <a onClick={function(){openUser(blogs.author._id)}} className="headingAu">{author}</a>
               <h3 className="heading">{time}<span> </span></h3>
             </div>

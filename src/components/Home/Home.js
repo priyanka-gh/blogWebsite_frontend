@@ -9,7 +9,6 @@ import {isAuthenticated} from '../index'
 import {showAllBlogs} from '../apicalls'
 import ImageHelper from '../helper/imageHelper'
 import ImageHelperBanner from '../helper/imageHelperBanner';
-
 const Home = () => {
     
     let history=useHistory();
@@ -128,13 +127,12 @@ const Home = () => {
                     <div data-aos="flip-left">
                     <li>
                     <a onClick={function(){openBlog(card._id, card.author.name)}} class="card">
-                        {console.log('thecardis ',card)}
                     <ImageHelper card = {card}></ImageHelper>
                     <div class="card__overlay">
                         <div class="card__header">
                         <div class="card__header-text">
                             <h3 class="card__title">{truncate(card.title,30)}</h3>            
-                            <span class="card__category">{card.category}</span>
+                            <span class="card__category">{card.category.name}</span>
                         </div>
                         </div>
                         <p class="card__description">{truncate(card.content,50)}</p>

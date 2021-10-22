@@ -10,7 +10,13 @@ import PostBlog from './components/PostBlog/PostBlog';
 import MyAllBlogs from './components/MyAllBlogs/MyAllBlogs'
 import DeleteByAdmin from './components/Admin/DeleteBlogs'
 import AllBlogsByUser from './components/AllBlogsByUser/AllBlogsByUser';
+import UpdateBlog from './components/UpdateBlog/UpdateBlog';
+import Updated from './components/Success/Updated';
+import Posted from './components/Success/Posted';
+import FailPost from './components/Failure/FailPost'
+
 const Home = lazy(() => import('./components/Home/Home'))
+
 function App() {
   return (
     <div className="App">
@@ -18,16 +24,18 @@ function App() {
     <Suspense fallback = {<div className='susdiv'>Please wait ...</div>}>
         <Navbar/>
         <Switch>
-
         <Route path="/signup" exact render={() => <Signup/>}></Route>
         <Route path="/login" exact render={() => <Login/>}></Route>
-        <Route path="/" exact render={() => <Home/>}></Route>
-        
+        <Route path="/" exact render={() => <Home/>}></Route>        
         <Route path="/details" exact render={() => <HomeCardDetails/>}></Route>
         <Route path="/post" exact render={() => <PostBlog/>}></Route>
         <Route path="/myAllBlogs" exact render={() => <MyAllBlogs/>}></Route>
         <Route path="/AdminPage" exact render={() => <DeleteByAdmin/>}></Route>
         <Route path="/thisUserBlog" exact render={() => <AllBlogsByUser/>}></Route>
+        <Route path="/updateBlog" exact render={() => <UpdateBlog/>}></Route>
+        <Route path="/successPost" exact render={() => <Posted/>}></Route>
+        <Route path="/successUpdate" exact render={() => <Updated/>}></Route>
+        <Route path="/failPost" exact render={() => <FailPost/>}></Route>
       </Switch>
     </Suspense>
     </Router>

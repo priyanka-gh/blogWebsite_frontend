@@ -7,13 +7,13 @@ export const createBlog=(userId,token,blog)=>{
     return fetch(`${API}/blogs/create/${userId}`,{
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        Accept: "application/json",
         Authorization: `Bearer ${token}`,
       },
-    body: blog
+        body: blog
     })
     .then(response => {
-        console.log("success")
+        console.log("success ",response)
         return response.json();
     })
     .catch(err=>console.log("err"))
@@ -71,6 +71,22 @@ export const getAllBlogsByUser = (userId) => {
         return res.json()
     }).catch(err => console.log(err))
 }
+
+export const updateProduct = (blogId, userId, token, blog) =>{
+    return fetch(`${API}/blogs/update/${userId}/${blogId}` , {
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: blog
+    }).then(response => {
+    console.log('updated blog ',response)
+        return response.json();
+    })
+    .catch(err => console.log(err));    
+}
+
 //delete by admin
 export const deleteBlogbyAdmin=(userId,blogId,token)=>{
     return fetch(`${API}/blogs/removeByAdmin/${userId}/${blogId}`,{
@@ -83,3 +99,10 @@ export const deleteBlogbyAdmin=(userId,blogId,token)=>{
     }).catch(err=>console.log(err))
 }
 
+export const getCategories=()=>{
+    return fetch(`${API}/categories`,{
+        method : "GET"
+    }).then(response=>{
+        return response.json();
+    }).catch(err=>console.log(err));
+};

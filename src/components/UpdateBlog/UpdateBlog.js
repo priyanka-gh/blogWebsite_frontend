@@ -1,21 +1,21 @@
 import React,{useState, useEffect, formData} from 'react'
-import './PostBlog.scss'
+import './UpdateBlog.scss'
 import CheckIcon from '@material-ui/icons/CheckCircle';
 import Pick from '../ImagePick/ImagePick'
-import {createBlog, getCategories} from '../apicalls'
+import {createBlog, getCategories, updateProduct, getThisBlog} from '../apicalls'
 import {isAuthenticated} from '../index'
-import {Link,useHistory} from 'react-router-dom'
+import {Link,useHistory, useLocation} from 'react-router-dom'
 import { API } from '../../backend';
 var FormData = require('form-data');
 
-const Post = () => {
+const UpdateBlog = ({ match }) => {
 
     const history=useHistory()
-    var openBlog=(prop)=>{
-        history.push({
-            pathname:'/thisblog',
-        })
-    }
+    const location = useLocation()
+
+    const blog=location.state.detail;
+    const blogId=blog._id
+
     const {user,token}=isAuthenticated();
 
     const [values, setValues] = useState({
@@ -29,50 +29,59 @@ const Post = () => {
         formData : ""
     })
 
-    const{title, content, category, categories, author, photo, formData}=values;
+    const{title, content, category, categories, createdBlog, photo,  formData}=values;
 
-    const preload=()=>{
-        getCategories().then(data=>{
-            if(data.error){
-                setValues({...values,error:data.error});
-                console.log('error hai ')
-            }else{
-                setValues({...values,categories: data,formData: new FormData()});
-                console.log('CATEGORY ',categories)
-            }
-        });
+    const preloadCategories = () => {
+      getCategories().then(data => {
+        if (data.error) {
+          setValues({ ...values, error: data.error });
+        } else {
+          setValues({
+            categories: data,
+            formData: new FormData()
+          });
+        }
+      });
     };
 
-    useEffect(() => {
-        preload()
-    }, [])
-
-    
+    const preload = blogId => {
+        getThisBlog(blogId).then(data => {
+        if (data.error) {
+          setValues({ ...values, error: data.error });
+        } else {
+          preloadCategories();
+          setValues({
+            ...values,
+            title: data.title,
+            content: data.content,
+            category: data.category._id,
+            formData: new FormData()
+          });
+        }
         
+      });
+    };
+
+    useEffect(() => {       
+        preload(blogId);
+      }, []);
+ 
     const handleChange=name=>event=>{
         const value=name==="photo"?event.target.files[0]:event.target.value;
         formData.set(name,value);
         setValues({...values, [name]:value});
-        console.log('frrmmmmm ',formData)
     }
 
     const onSubmit=event=>{
-        console.log('onsub trigger ', formData)
         event.preventDefault();
         formData.set('author', user._id);
 
         setValues({...values,error:""})
-        createBlog(user._id,token,formData).then(data=>{
+        updateProduct(blogId, user._id, token, formData).then(data=>{
             console.log('hehrhehehhe ',formData)
-          if(data.error)
-          {
+          if(data.error){
             setValues({...values,error:data.error})
-            setTimeout(function(){
-                window.location.href = '/failPost';
-             }, 1000);
-          }
-          else
-          {
+          }else{
             setValues({
               ...values,
               title : " ",
@@ -82,8 +91,8 @@ const Post = () => {
               createdBlog : data.name
             })
             setTimeout(function(){
-                window.location.href = '/successPost';
-             }, 1000);
+              window.location.href = '/successUpdate';
+           }, 1000);
           }
           
         })
@@ -126,4 +135,4 @@ const Post = () => {
     )
 }
 
-export default Post
+export default UpdateBlog
