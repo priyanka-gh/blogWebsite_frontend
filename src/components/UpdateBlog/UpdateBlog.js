@@ -49,16 +49,15 @@ const UpdateBlog = ({ match }) => {
         if (data.error) {
           setValues({ ...values, error: data.error });
         } else {
-          preloadCategories();
           setValues({
             ...values,
             title: data.title,
             content: data.content,
-            category: data.category._id,
+            category: data.category.name,
             formData: new FormData()
           });
-        }
-        
+          preloadCategories();
+        }      
       });
     };
 

@@ -99,6 +99,14 @@ export const deleteBlogbyAdmin=(userId,blogId,token)=>{
     }).catch(err=>console.log(err))
 }
 
+// export const likePost = (blogId) => {
+//     return fetch(`${API}/blogs/likePost/${blogId}`,{
+//         method : "PUT",
+//     }).then(response=>{
+//         return response.json();
+//     }).catch(err=>console.log(err));
+// }
+
 export const getCategories=()=>{
     return fetch(`${API}/categories`,{
         method : "GET"
@@ -106,3 +114,39 @@ export const getCategories=()=>{
         return response.json();
     }).catch(err=>console.log(err));
 };
+
+export const likePost = (userId, blogId, token) => {
+    return fetch(`${API}/${userId}/${blogId}`,{
+        method : "POST",
+        headers : {
+            Authorization : `Bearer ${token}`
+        }
+    }).then(response=>{
+        console.log("rezponse ",response)
+        return response.json();
+    }).catch(err=>console.log(err));
+}
+
+export const deleteLike = (likeId) => {
+    return fetch(`${API}/likes/delete/${likeId}`,{
+        method : "DELETE",
+    }).then(response=>{
+        return response.json();
+    }).catch(err=>console.log(err));
+}
+
+export const getLike = (userId, blogId) => {
+    return fetch(`${API}/like/${userId}/${blogId}`,{
+        method : "GET",
+    }).then(response=>{
+        return response.json();
+    }).catch(err=>console.log(err));
+}
+
+export const totalLikes = (blogId) => {
+    return fetch(`${API}/likes/${blogId}`,{
+        method : "GET"
+    }).then(response=>{
+        return response.json();
+    }).catch(err=>console.log(err));
+}

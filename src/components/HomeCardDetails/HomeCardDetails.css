@@ -60,6 +60,17 @@
 .middle {
   z-index: 1;
 }
+.likeIcon {
+  font-size: 2rem;
+  margin-right: 1rem;
+  color: white;
+}
+.likeIcon::after {
+  color: red;
+}
+.spanLike {
+  margin: 1rem;
+}
 /* //animation */
 
 @keyframes animate {

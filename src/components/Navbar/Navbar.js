@@ -26,7 +26,9 @@ const Homepage = () => {
         <div>
             <div className="top">
                 <div className={colorChange ? 'navbar colorChange' : 'navbar'}>
-                    <a className='ecrire' href="/">écrire</a>
+                    {
+                        <a className='ecrire' href="/">écrire</a>
+                    }
                     <div className="insideNav">
                         {!loggedIn && (
                         <Link to='/login' className="link">Login</Link>
@@ -37,12 +39,12 @@ const Homepage = () => {
                             {isAuthenticated() && isAuthenticated().user.role===0 && (
                                 <Link to='/myAllBlogs' className="link">My Work</Link>
                             )}
-                            {isAuthenticated() && isAuthenticated().user.role === 1 && (
+                            {/* {isAuthenticated() && isAuthenticated().user.role === 1 && (
                                 <Link to = '/AdminPage'
                                     className="link">
                                     All Blogs
                                 </Link>
-                            )}
+                            )} */}
                             {loggedIn && (
                                 <Link to='/'  
                                 className="link"

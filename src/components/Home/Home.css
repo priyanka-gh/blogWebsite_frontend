@@ -36,7 +36,7 @@
 }
 .upperHome2 {
   height: 100vh;
-  background-color: black;
+  background-color: white;
 }
 .upperHomeStart {
   position: relative;
@@ -54,6 +54,9 @@
   box-shadow: 0 8px 32px 0 hsla(0, 92%, 10%, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+}
+.upperHomeContent2 {
+  background-color: white;
 }
 .upperHomeTitle {
   padding-bottom: 1rem;

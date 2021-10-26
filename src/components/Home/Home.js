@@ -2,7 +2,7 @@ import React,{useState,useEffect} from 'react'
 import './Home.css'
 import Aos from 'aos';
 import {useHistory} from 'react-router-dom'
-
+import Fade from 'react-reveal/Fade'
 import "aos/dist/aos.css"
 import bgPhoto from './background.jpg'
 import {isAuthenticated} from '../index'
@@ -100,12 +100,17 @@ const Home = () => {
                     <div className="upperHome2">
                     </div>
                 }
-                <div className="upperHomeContent">
+                {blogs.length!=0?
+                    <div className="upperHomeContent">
                     <div className="upperHomeTitle">
-                        {truncate(blogs[0]?blogs[0].title:" ",40)}
+                        {truncate(blogs[0]?blogs[0].title:" ",10)}
                     </div>
                     {truncate(blogs[0]?blogs[0].content:" ", 900)}
-                </div>
+                    </div>
+                    :
+                    <div className="upperHomeContent2">
+                    </div>
+                    }
             </a>
             </div>
 

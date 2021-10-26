@@ -37,6 +37,7 @@ const Signup = () => {
               error: "",
               success: true
             });
+            window.location.reload(); 
           }
         })
         .catch(console.log("Error in signup"));

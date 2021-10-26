@@ -34,28 +34,27 @@ const Login = () => {
                 didRedirect: true
                 });
             });
+            window.location.reload(); 
             }
         })
         .catch(console.log("signin request failed"));
     };
 
+
     const performRedirect = () => {
-        if (didRedirect) {
-        if (user ) {
-            window.location.reload();
-            return <Redirect to="/"/>;
+        //TODO: do a redirect here
+    if (didRedirect) {
+        if (user && user.role === 1) {
+            return <Redirect to="/admin/dashboard"/>;
         } else {
-            return <Redirect to="/signup"/>;
+            return <Redirect to="/"/>;
         }
         }
         if (isAuthenticated()) {
-        return <Redirect to="/" />;
-
-        }
-        else{
-
-        }
+            return <Redirect to="/" />;
+          }
     };
+
     const errorMessage = () => {
         return (
           <div className="row">

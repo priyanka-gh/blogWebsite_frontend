@@ -8,12 +8,13 @@ import Navbar from './components/Navbar/Navbar';
 import HomeCardDetails from './components/HomeCardDetails/HomeCardDetails';
 import PostBlog from './components/PostBlog/PostBlog';
 import MyAllBlogs from './components/MyAllBlogs/MyAllBlogs'
-import DeleteByAdmin from './components/Admin/DeleteBlogs'
+import AdminDashboard from './components/Admin/DeleteBlogs'
 import AllBlogsByUser from './components/AllBlogsByUser/AllBlogsByUser';
 import UpdateBlog from './components/UpdateBlog/UpdateBlog';
 import Updated from './components/Success/Updated';
 import Posted from './components/Success/Posted';
 import FailPost from './components/Failure/FailPost'
+import AdminRoutes from './components/Admin/helper/AdminRoutes';
 
 const Home = lazy(() => import('./components/Home/Home'))
 
@@ -24,18 +25,18 @@ function App() {
     <Suspense fallback = {<div className='susdiv'>Please wait ...</div>}>
         <Navbar/>
         <Switch>
-        <Route path="/signup" exact render={() => <Signup/>}></Route>
-        <Route path="/login" exact render={() => <Login/>}></Route>
-        <Route path="/" exact render={() => <Home/>}></Route>        
-        <Route path="/details" exact render={() => <HomeCardDetails/>}></Route>
-        <Route path="/post" exact render={() => <PostBlog/>}></Route>
-        <Route path="/myAllBlogs" exact render={() => <MyAllBlogs/>}></Route>
-        <Route path="/AdminPage" exact render={() => <DeleteByAdmin/>}></Route>
-        <Route path="/thisUserBlog" exact render={() => <AllBlogsByUser/>}></Route>
-        <Route path="/updateBlog" exact render={() => <UpdateBlog/>}></Route>
-        <Route path="/successPost" exact render={() => <Posted/>}></Route>
-        <Route path="/successUpdate" exact render={() => <Updated/>}></Route>
-        <Route path="/failPost" exact render={() => <FailPost/>}></Route>
+        <Route path="/signup" exact component ={Signup}/>
+        <Route path="/login" exact component = {Login}/>
+        <Route path="/" exact component = {Home}/>       
+        <Route path="/details" exact component = {HomeCardDetails}/>
+        <Route path="/post" exact component = {PostBlog}/>
+        <Route path="/myAllBlogs" exact component = {MyAllBlogs}/>
+        <AdminRoutes path="/admin/dashboard" exact component = {AdminDashboard}/>
+        <Route path="/thisUserBlog" exact component = {AllBlogsByUser}/>
+        <Route path="/updateBlog" exact component = {UpdateBlog}/>
+        <Route path="/successPost" exact component = {Posted} />
+        <Route path="/successUpdate" exact component = {Updated}/>
+        <Route path="/failPost" exact component = {FailPost}/>
       </Switch>
     </Suspense>
     </Router>
