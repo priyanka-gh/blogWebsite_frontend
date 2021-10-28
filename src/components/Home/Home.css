@@ -13,7 +13,7 @@
 }
 .lowerHome {
   padding-bottom: 1rem;
-  background-color: rgb(250, 240, 231);
+  background-color: #e8f5f8;
 }
 :root {
   --surface-color: white;
@@ -169,14 +169,16 @@ h1 {
 svg text {
   font-family: Lora;
   letter-spacing: 6px;
-  stroke: #ffa5d8;
+  stroke: #388087;
   font-weight: 700;
   font-size: 3rem;
   stroke-width: 1;
   animation: textAnimate 3s infinite alternate;
-  text-shadow: 0 0 5px rgb(97, 4, 92), 0 0 10px #fff, 0 0 15px #fff,
+  /* text-shadow: 0 0 5px rgb(97, 4, 92), 0 0 10px #fff, 0 0 15px #fff,
     0 0 20px #520255, 0 0 30px #5a0f4a, 0 0 40px #ff2d95, 0 0 50px #995d7b,
-    0 0 75px #d354a9;
+    0 0 75px #d354a9; */
+  text-shadow: 0 0 5px #388087, 0 0 5px #fff, 0 0 10px #fff, 0 0 10px #174a4e,
+    0 0 15px #6282ac, 0 0 20px #589fa5, 0 0 30px #827ab3, 0 0 50px #6b54d3;
 }
 
 @keyframes textAnimate {
@@ -286,4 +288,16 @@ div.main-div div {
 .pageOne {
   display: flex;
   width: 40rem;
+}
+
+.browse {
+  margin-top: 4rem;
+  padding: 1rem 5rem;
+  border: none;
+  background-color: #388087;
+  color: white;
+  font-size: 1rem;
+}
+.browse:hover {
+  background-color: #154d52;
 }

@@ -89,12 +89,12 @@ const Home = () => {
                 <div className="sixth">M</div>
                 <div className="seventh">E</div>
             </div> */}
-            
+            <div data-aos="zoom-in">
             <div className="upperHomeStart overlay">
-            <a onClick={function(){openBlog(blogs[0]._id, blogs[0].author.name)}} class="cardTop">
+            <a onClick={function(){openBlog(blogs[blogs.length-1]._id, blogs[blogs.length-1].author.name)}} class="cardTop">
                 {blogs.length!=0?
                     <div className="upperHome">
-                        <ImageHelperBanner card = {blogs[0]} class="bgphoto"></ImageHelperBanner>
+                        <ImageHelperBanner card = {blogs[blogs.length-1]} class="bgphoto"></ImageHelperBanner>
                     </div>
                     : 
                     <div className="upperHome2">
@@ -113,13 +113,13 @@ const Home = () => {
                     }
             </a>
             </div>
-
+            </div>
             <div className="lowerHome">
             <div data-aos="zoom-in">
             <svg width = "100%" height = "100%">
                 {blogs.length!=0 ? 
                     <text x="50%" y="60%"  text-anchor="middle">
-                        This Week's Stories
+                        Recent Stories
                     </text> : " "
                 }
             </svg>
@@ -127,7 +127,7 @@ const Home = () => {
 
 
             <ul class="cards">
-                {blogs.map((card) => {
+                {blogs.slice(-4).reverse().map((card) => {
                 return (
                     <div data-aos="flip-left">
                     <li>
@@ -146,8 +146,11 @@ const Home = () => {
                     </li>
                     </div> 
                     )
-                    })}  
-                </ul>
+                    })} 
+                    <hr/> 
+            </ul>
+
+                <button onClick={function(){history.push('/Browse')}} className = "browse">Browse</button>
             </div>
         </div>
         

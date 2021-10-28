@@ -95,7 +95,7 @@ var openBlog=(prop, author)=>{
                     {
                         blogs.map((blog)=>{
                             return(
-                                <div className="allBlogCard" >
+                                <div className="allBlogCard2" >
                                     <div className='myBlogsHeader'>{updatedEntry[0].createdAt}</div>
                                     <div  className="myBlogsBody">
                                     <div className="blogArea" onClick={function(){openBlog(blog._id, blog.author.name)}}>

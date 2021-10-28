@@ -39,12 +39,18 @@ const Homepage = () => {
                             {isAuthenticated() && isAuthenticated().user.role===0 && (
                                 <Link to='/myAllBlogs' className="link">My Work</Link>
                             )}
-                            {/* {isAuthenticated() && isAuthenticated().user.role === 1 && (
-                                <Link to = '/AdminPage'
+                            {isAuthenticated() && isAuthenticated().user.role === 1 && (
+                                <Link to = '/admin/dashboard'
                                     className="link">
-                                    All Blogs
+                                    Dashboard
                                 </Link>
-                            )} */}
+                            )}
+                            {isAuthenticated() && isAuthenticated().user.role === 1 && (
+                                <Link to = '/manageCat'
+                                    className="link">
+                                    Manage Categories
+                                </Link>
+                            )}
                             {loggedIn && (
                                 <Link to='/'  
                                 className="link"

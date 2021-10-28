@@ -14,7 +14,7 @@ const HomeCardDetails = props => {
     const [color, setColor] = useState(0)
     const [loggedIn,setLoggedIn]=useState(false);
     const { user, token } = isAuthenticated();
-    const [errorMessage, setErrorMessage] = useState('');
+    const [myLike, setmyLike] = useState('');
 
     useEffect(() => {
         isAuthenticated()?setLoggedIn(true):setLoggedIn(false)
@@ -39,7 +39,7 @@ const HomeCardDetails = props => {
     useEffect(() => {
       preload()
       getLikes(blogId)
-
+      getThisLike(user._id, blogId)
     })
 
     var getLikes = (blogId) =>{
@@ -74,13 +74,25 @@ const HomeCardDetails = props => {
     })
   }
 
-  var getThisLike = (userId, blogId) => {
+  var delLike = (userId, blogId) => {
     getLike(userId, blogId).then(data => {
       if(data.error) {
         console.log(data.error)
       }
       else{
         deleteThisLike(data[0]._id)
+      }
+    })
+  }
+
+  var getThisLike = (userId, blogId) => {
+    getLike(userId, blogId).then(data => {
+      if(data.error) {
+        console.log(data.error)
+      }
+      else{
+        setmyLike(data.length)
+        // console.log('setuserlike ',data.length)
       }
     })
   }
@@ -93,8 +105,9 @@ const HomeCardDetails = props => {
        });
       }
       if(data.error) {
-        getThisLike(userId, blogId)
+        delLike(userId, blogId)
         setColor(0)
+        console.log(data.error)
       }
       else{
         setuserLikes(data)
@@ -103,62 +116,62 @@ const HomeCardDetails = props => {
     })
   }
 
-    return (
-      <div className="homecard">
-        <ul className="lis">
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        </ul>
-        <div className="header">  
-          <div className="upper">
-              <div className="blogimg">
-                <ImageHelperCard card = {blogs} ></ImageHelperCard>
-              </div>
-              <div className = "blogHeader">
-              <h1 className="headingTitle">{blogs?blogs.title:" "}</h1>
-              <h3 className="headingCat">{blogs.category?blogs.category.name:" "}</h3>
-              <a onClick={function(){openUser(blogs.author._id)}} className="headingAu">{author}</a>
-              <h3 className="heading">{time}<span> </span></h3>
+  return (
+    <div className="homecard">
+      <ul className="lis">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      </ul>
+      <div className="header">  
+        <div className="upper">
+            <div className="blogimg">
+              <ImageHelperCard card = {blogs} ></ImageHelperCard>
             </div>
+            <div className = "blogHeader">
+            <h1 className="headingTitle">{blogs?blogs.title:" "}</h1>
+            <a onClick={function(){openUser(blogs.author._id)}} className="headingAu">{author}</a>
           </div>
         </div>
-        {color==1?
-        <div className="middle blogcontent">
-              <h4><BsFillHeartFill 
-                className="likeIcon" 
-                stroke= "black"
-                strokeWidth= "0.2"
-                color = "red"
-                onClick={function(){
-                  likeThisPost(user?user._id:" ", blogs._id);
-                }}/>
-                <span>{likes} likes</span>
-              </h4>
-              <h4>{blogs.content}</h4>
-              
-        </div>:
-        <div className="middle blogcontent">
-              <h4><BsFillHeartFill 
-                className="likeIcon" 
-                stroke= "black"
-                strokeWidth= "0.2"
-                color = "white"
-                onClick={function(){
-                  likeThisPost(user?user._id:" ", blogs._id);
-                }}/>
-                <span>{likes} likes</span>
-              </h4>
-              <h4>{blogs.content}</h4>
-              
-        </div>
-        }
       </div>
-    )
+      {/* {console.log('len ',myLike)} */}
+
+      {color==1 || myLike > 0?
+      <div className="middle blogcontent">
+            <h3 className="headingCat">{blogs.category?blogs.category.name:" "}</h3>
+            <h3 className="heading">{time}<span> </span></h3>
+            <h4><BsFillHeartFill 
+              className="likeIcon" 
+              color = "red"
+              onClick={function(){
+                likeThisPost(user?user._id:" ", blogs._id);
+              }}/>
+              <span>{likes} likes</span>
+            </h4>
+            <h4>{blogs.content}</h4> 
+      </div>:
+      <div className="middle blogcontent">
+        <h3 className="headingCat">{blogs.category?blogs.category.name:" "}</h3>
+            <h3 className="heading">{time}<span> </span></h3>
+            <h4><BsFillHeartFill 
+              className="likeIcon" 
+              stroke= "black"
+              strokeWidth= "0.2"
+              color = "white"
+              onClick={function(){
+                likeThisPost(user?user._id:" ", blogs._id);
+              }}/>
+              <span>{likes} likes</span>
+            </h4>
+            <h4>{blogs.content}</h4>
+      </div>
+      }
+    </div>
+  )
 }
 
 export default HomeCardDetails

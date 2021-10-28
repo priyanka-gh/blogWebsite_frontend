@@ -8,12 +8,14 @@
   font-family: "Roboto Condensed", sans-serif;
   font-size: 4rem;
   color: white;
+  margin-bottom: 2rem;
 }
 .headingCat,
 .headingAu,
 .heading {
   font-family: "Rubik", sans-serif;
   color: rgb(80, 76, 76);
+  margin-top: 1rem;
 }
 .blogHeader > a {
   text-decoration: underline overline;
@@ -41,7 +43,7 @@
   margin-top: 4rem;
   position: absolute;
   top: 20%;
-  background-color: rgba(231, 220, 198, 0.6);
+  background-color: rgba(231, 220, 198, 0.3);
   box-shadow: 0 8px 32px 0 hsla(0, 92%, 10%, 0.25);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);

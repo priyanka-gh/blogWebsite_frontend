@@ -17,22 +17,23 @@
   width: 100vw;
   z-index: 2 !important;
   top: 0%;
-  background-color: rgba(123, 131, 138, 0.4);
+  background-color: rgb(148, 176, 179, 0.4);
 }
 
 .navbar.colorChange {
-  background-color: rgba(123, 131, 138, 0.9);
+  background-color: rgb(148, 176, 179, 0.9);
+
   color: pink;
 }
 .ecrire {
   font-family: "Orbitron", sans-serif;
-  color: #414649;
+  color: #fff;
   text-decoration: none;
   font-size: 2rem;
 }
 .link {
   font-family: "Reenie Beanie";
-  color: #414649;
+  color: #fff;
   margin: 0rem 2rem 0rem 2rem;
   font-size: 2.3rem;
   text-decoration: none;
@@ -47,7 +48,7 @@ a.link:before {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: rgb(110, 101, 92);
+  background-color: #388087;
   visibility: hidden;
   transform: scaleX(0);
   transition: all 0.3s ease-in-out;

@@ -8,12 +8,12 @@
 }
 .checkIcon {
   color: peru;
-  /* font-size: 8rem; */
+  font-size: 6rem;
 }
 .h1Updated {
   color: rgb(99, 93, 87);
   margin-left: 2rem;
 }
-.MuiSvgIcon-root {
+/* .MuiSvgIcon-root {
   font-size: 6rem;
-}
+} */

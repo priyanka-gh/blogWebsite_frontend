@@ -69,6 +69,7 @@ const AllBlogsByUser = props => {
     
     return (
         <div className="allBlogsByUser">
+            <div className = "userBlogs">
             <ul class="cards">
                 {blogs.map((card) => {
                 return (
@@ -91,6 +92,7 @@ const AllBlogsByUser = props => {
                     )
                     })}  
                 </ul>
+            </div>
         </div>
     )
 }

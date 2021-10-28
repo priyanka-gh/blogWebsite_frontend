@@ -111,10 +111,12 @@
   overflow: hidden;
 }
 .allBlogsByUser {
+  background-color: #f5fafc;
+  min-height: 100vh;
+}
+.userBlogs {
   display: flex;
   flex-direction: column;
-  /* height: 100vh; */
-  background-color: #000;
   top: 0%;
   padding-top: 3rem;
   padding-bottom: 3rem;

@@ -15,6 +15,8 @@ import Updated from './components/Success/Updated';
 import Posted from './components/Success/Posted';
 import FailPost from './components/Failure/FailPost'
 import AdminRoutes from './components/Admin/helper/AdminRoutes';
+import Browse from './components/Browse/Browse';
+import AddCategory from './components/Admin/AddCategory';
 
 const Home = lazy(() => import('./components/Home/Home'))
 
@@ -32,11 +34,13 @@ function App() {
         <Route path="/post" exact component = {PostBlog}/>
         <Route path="/myAllBlogs" exact component = {MyAllBlogs}/>
         <AdminRoutes path="/admin/dashboard" exact component = {AdminDashboard}/>
+        <AdminRoutes path="/manageCat" exact component = {AddCategory}/>
         <Route path="/thisUserBlog" exact component = {AllBlogsByUser}/>
         <Route path="/updateBlog" exact component = {UpdateBlog}/>
         <Route path="/successPost" exact component = {Posted} />
         <Route path="/successUpdate" exact component = {Updated}/>
         <Route path="/failPost" exact component = {FailPost}/>
+        <Route path="/Browse" exact component = {Browse}/>
       </Switch>
     </Suspense>
     </Router>
