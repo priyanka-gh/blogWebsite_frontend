@@ -39,8 +39,12 @@ const HomeCardDetails = props => {
     useEffect(() => {
       preload()
       getLikes(blogId)
-      getThisLike(user._id, blogId)
     })
+
+    useEffect(() => {
+      getThisLike(user._id,blogId)
+
+    },[likes])
 
     var getLikes = (blogId) =>{
       totalLikes(blogId).then(data => {
@@ -89,6 +93,8 @@ const HomeCardDetails = props => {
     getLike(userId, blogId).then(data => {
       if(data.error) {
         console.log(data.error)
+      console.log('blg ',blogId)
+
       }
       else{
         setmyLike(data.length)
@@ -110,12 +116,13 @@ const HomeCardDetails = props => {
         console.log(data.error)
       }
       else{
+        console.log('else')
         setuserLikes(data)
         setColor(1)
       }
     })
   }
-
+console.log('cllr ',color)
   return (
     <div className="homecard">
       <ul className="lis">
@@ -138,7 +145,7 @@ const HomeCardDetails = props => {
           </div>
         </div>
       </div>
-      {/* {console.log('len ',myLike)} */}
+      {console.log('len ',myLike)}
 
       {color==1 || myLike > 0?
       <div className="middle blogcontent">

@@ -91,7 +91,7 @@ const Home = () => {
             </div> */}
             <div data-aos="zoom-in">
             <div className="upperHomeStart overlay">
-            <a onClick={function(){openBlog(blogs[blogs.length-1]._id, blogs[blogs.length-1].author.name)}} class="cardTop">
+            <a onClick={function(){openBlog(blogs?blogs[blogs.length-1]._id:" ", blogs?blogs[blogs.length-1].author.name:" ")}} class="cardTop">
                 {blogs.length!=0?
                     <div className="upperHome">
                         <ImageHelperBanner card = {blogs[blogs.length-1]} class="bgphoto"></ImageHelperBanner>
