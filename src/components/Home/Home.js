@@ -134,7 +134,7 @@ const Home = () => {
                     <div class="card__overlay">
                         <div class="card__header">
                         <div class="card__header-text">
-                            <h3 class="card__title">{truncate(card.title,30)}</h3>            
+                            <h3 class="card__title">{truncate(card.title,20)}</h3>            
                             <span class="card__category">{card.category.name}</span>
                         </div>
                         </div>
