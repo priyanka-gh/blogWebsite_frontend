@@ -141,7 +141,6 @@ const Home = () => {
                         <p class="card__description">{truncate(card.content,50)}</p>
                     </div>
                     </a>
-                    <hr/> 
                     </li>
                     </div> 
                     )
