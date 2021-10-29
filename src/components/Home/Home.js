@@ -142,10 +142,11 @@ const Home = () => {
                     </div>
                     </a>
                     </li>
+                    <hr/> 
+
                     </div> 
                     )
                     })} 
-                    <hr/> 
             </ul>
 
                 <button onClick={function(){history.push('/Browse')}} className = "browse">Browse</button>
