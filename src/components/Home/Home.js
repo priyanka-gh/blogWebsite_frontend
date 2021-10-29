@@ -101,9 +101,9 @@ const Home = () => {
                 {blogs.length!=0?
                     <div className="upperHomeContent">
                     <div className="upperHomeTitle">
-                        {truncate(blogs[0]?blogs[0].title:" ",10)}
+                        {truncate(blogs?blogs[blogs.length-1].title:" ",20)}
                     </div>
-                    {truncate(blogs[0]?blogs[0].content:" ", 900)}
+                    {truncate(blogs?blogs[blogs.length-1].content:" ", 900)}
                     </div>
                     :
                     <div className="upperHomeContent2">
