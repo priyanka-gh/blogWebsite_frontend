@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { isAuthenticated } from "../index";
-import { Link } from "react-router-dom";
 import { createCategory, getCategories, deleteThisCategory } from "../apicalls";
 import './AddCategory.css'
 const AddCategory = () => {

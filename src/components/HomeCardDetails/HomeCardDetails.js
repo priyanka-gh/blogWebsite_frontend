@@ -1,11 +1,9 @@
 import React,{useEffect,useState} from 'react'
 import './HomeCardDetails.css'
-import thisblog from '../Home/background.jpg'
 import {getThisBlog, likePost, totalLikes, getLike, deleteLike} from '../apicalls'
 import {isAuthenticated} from '../index'
 import { useLocation, useHistory } from "react-router-dom";
 import { BsFillHeartFill} from "react-icons/bs";
-import ImageHelper from '../helper/imageHelper'
 import ImageHelperCard from '../helper/ImageHelperCard'
 const HomeCardDetails = props => {
     const [blogs, setBlogs] = useState([]);

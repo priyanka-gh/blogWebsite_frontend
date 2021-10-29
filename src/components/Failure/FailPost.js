@@ -1,7 +1,7 @@
 import React from 'react'
 // import CancelIcon from '@mui/icons-material/Cancel';
 import './FailPost.css'
-import { FaClipboardList, FaTimes } from "react-icons/fa";
+import {  FaTimes } from "react-icons/fa";
 
 const Posted = () => {
     return (

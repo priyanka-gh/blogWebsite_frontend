@@ -3,7 +3,7 @@ import './MyAllBlogs.scss'
 import {useHistory} from 'react-router-dom'
 import { FaEdit} from "react-icons/fa";
 import { RiDeleteBin6Line} from "react-icons/ri";
-import {getMyBlogs,updatedEntry} from '../apicalls'
+import {getMyBlogs} from '../apicalls'
 import {isAuthenticated} from '../index'
 import {deleteBlog} from '../apicalls'
 

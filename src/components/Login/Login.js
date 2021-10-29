@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import './Login.css'
 import FloatingLabel from "react-bootstrap-floating-label";
 import {signin,authenticate,isAuthenticated} from '../index'
-import {Link,Redirect} from 'react-router-dom'
+import {Redirect} from 'react-router-dom'
 
 const Login = () => {
     

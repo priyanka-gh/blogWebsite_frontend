@@ -2,9 +2,7 @@ import React,{useState,useEffect} from 'react'
 import './Home.css'
 import Aos from 'aos';
 import {useHistory} from 'react-router-dom'
-import Fade from 'react-reveal/Fade'
 import "aos/dist/aos.css"
-import bgPhoto from './background.jpg'
 import {isAuthenticated} from '../index'
 import {showAllBlogs} from '../apicalls'
 import ImageHelper from '../helper/imageHelper'

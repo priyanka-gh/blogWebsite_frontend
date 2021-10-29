@@ -1,11 +1,9 @@
 import React,{useState, useEffect, formData} from 'react'
 import './UpdateBlog.scss'
 import CheckIcon from '@material-ui/icons/CheckCircle';
-import Pick from '../ImagePick/ImagePick'
 import {createBlog, getCategories, updateProduct, getThisBlog} from '../apicalls'
 import {isAuthenticated} from '../index'
-import {Link,useHistory, useLocation} from 'react-router-dom'
-import { API } from '../../backend';
+import {useHistory, useLocation} from 'react-router-dom'
 var FormData = require('form-data');
 
 const UpdateBlog = ({ match }) => {
