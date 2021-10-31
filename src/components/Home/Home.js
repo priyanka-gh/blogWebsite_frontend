@@ -45,7 +45,7 @@ const Home = () => {
 
     var openBlog=(prop, author)=>{
         history.push({
-            pathname:'/details',
+            pathname:`/details/${prop}`,
             state : {detail : prop, auth : author, time : updatedEntry[0].createdAt }
         })
     }

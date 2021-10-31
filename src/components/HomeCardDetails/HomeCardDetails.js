@@ -2,9 +2,11 @@ import React,{useEffect,useState} from 'react'
 import './HomeCardDetails.css'
 import {getThisBlog, likePost, totalLikes, getLike, deleteLike} from '../apicalls'
 import {isAuthenticated} from '../index'
-import { useLocation, useHistory } from "react-router-dom";
+import { useLocation, useHistory, useParams } from "react-router-dom";
 import { BsFillHeartFill} from "react-icons/bs";
 import ImageHelperCard from '../helper/ImageHelperCard'
+import {FacebookShareButton, FacebookIcon, TwitterShareButton	, TwitterIcon} from "react-share";
+
 const HomeCardDetails = props => {
     const [blogs, setBlogs] = useState([]);
     const [userlikes, setuserLikes] = useState([]);
@@ -33,14 +35,16 @@ const HomeCardDetails = props => {
         });
       }
      
+      const params = useParams()
+      const shareblogId=params.blogId
 
-    useEffect(() => {
+      useEffect(() => {
       preload()
       getLikes(blogId)
     })
 
     useEffect(() => {
-      getThisLike(user._id,blogId)
+      getThisLike(user?user._id:" ",blogId)
 
     },[likes])
 
@@ -120,7 +124,10 @@ const HomeCardDetails = props => {
       }
     })
   }
-console.log('cllr ',color)
+  function truncate(str,n){
+      return str?.length>n?str.substr(0,n-1)+"...":str;
+  }
+
   return (
     <div className="homecard">
       <ul className="lis">
@@ -149,6 +156,7 @@ console.log('cllr ',color)
       <div className="middle blogcontent">
             <h3 className="headingCat">{blogs.category?blogs.category.name:" "}</h3>
             <h3 className="heading">{time}<span> </span></h3>
+            <div className="iconsCard">
             <h4><BsFillHeartFill 
               className="likeIcon" 
               color = "red"
@@ -157,11 +165,34 @@ console.log('cllr ',color)
               }}/>
               <span>{likes} likes</span>
             </h4>
-            <h4>{blogs.content}</h4> 
+            <div>
+            <FacebookShareButton 
+                url={`https://blogwebsiteit.netlify.app/details/${shareblogId}`}
+                title={blogs.title}
+                quote={blogs.content}>
+                 <FacebookIcon size={36} round/>
+              </FacebookShareButton>
+              <TwitterShareButton
+              title={blogs.title}
+              url={`https://blogwebsiteit.netlify.app/details/${shareblogId}`}
+              hashtag={blogs.category}>
+              <TwitterIcon size={36} round />
+            </TwitterShareButton>
+            </div>
+            </div>
+            
+            {!loggedIn?
+            <div>
+              <h4>{truncate(blogs?blogs.content:" ", 2000)}</h4>
+              <a href="/login">Login to read more</a>
+              </div>:
+              <h4>{blogs.content}</h4>
+            }
       </div>:
       <div className="middle blogcontent">
         <h3 className="headingCat">{blogs.category?blogs.category.name:" "}</h3>
             <h3 className="heading">{time}<span> </span></h3>
+            <div className="iconsCard">
             <h4><BsFillHeartFill 
               className="likeIcon" 
               stroke= "black"
@@ -172,7 +203,29 @@ console.log('cllr ',color)
               }}/>
               <span>{likes} likes</span>
             </h4>
-            <h4>{blogs.content}</h4>
+            <div>
+            <FacebookShareButton 
+                url={`https://blogwebsiteit.netlify.app/details/${shareblogId}`}
+                title={blogs.title}
+                quote={blogs.content}>
+                 <FacebookIcon size={36} round/>
+              </FacebookShareButton>
+              <TwitterShareButton
+              title={blogs.title}
+              url={`https://blogwebsiteit.netlify.app/details/${shareblogId}`}
+              hashtag={blogs.category}>
+              <TwitterIcon size={36} round />
+            </TwitterShareButton>
+            </div>
+            </div>
+            
+            {!loggedIn?
+            <div className="readMore">
+              <h4>{truncate(blogs?blogs.content:" ", 2000)}</h4>
+              <a href="/login" className="cardLink">Login to read more</a>
+              </div>:
+              <h4>{blogs.content}</h4>
+            }
       </div>
       }
     </div>

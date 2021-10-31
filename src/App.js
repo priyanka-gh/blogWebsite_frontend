@@ -30,7 +30,7 @@ function App() {
         <Route path="/signup" exact component ={Signup}/>
         <Route path="/login" exact component = {Login}/>
         <Route path="/" exact component = {Home}/>       
-        <Route path="/details" exact component = {HomeCardDetails}/>
+        <Route path="/details/:blogId" exact component = {HomeCardDetails}/>
         <Route path="/post" exact component = {PostBlog}/>
         <Route path="/myAllBlogs" exact component = {MyAllBlogs}/>
         <AdminRoutes path="/admin/dashboard" exact component = {AdminDashboard}/>
